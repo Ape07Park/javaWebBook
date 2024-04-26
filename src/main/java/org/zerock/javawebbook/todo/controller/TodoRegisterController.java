@@ -1,4 +1,4 @@
-package org.zerock.javawebbook.todo;
+package org.zerock.javawebbook.todo.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
