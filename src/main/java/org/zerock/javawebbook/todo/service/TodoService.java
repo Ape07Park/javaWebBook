@@ -39,7 +39,7 @@ public enum TodoService {
     }
 
     public TodoDTO getTodo(long tno) {
-        // tno를 넣으면 원하는 todo 가져오기
+        /* tno를 넣으면 원하는 todo 가져오기 */
         TodoDTO todo = new TodoDTO();
         todo.setTno(tno);
         todo.setTitle("Todo" + tno);
