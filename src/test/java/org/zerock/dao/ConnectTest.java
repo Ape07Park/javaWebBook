@@ -1,5 +1,7 @@
 package org.zerock.dao;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +32,23 @@ public class ConnectTest {
 
         conn.close(); // DB와 연결 끊기
 
+    }
+    
+    // junit의 test 어노테이션
+    @Test
+    public void testHikariCP() throws  Exception {
+        HikariConfig config = new HikariConfig();
+        config.setDriverClassName("com.mysql.jdbc.Driver");
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/webdb");
+        config.setUsername("webuser");
+        config.setPassword("webuser");
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+
+        HikariDataSource ds = new HikariDataSource(config);
+        Connection conn = ds.getConnection();
+        System.out.println(conn);
+        conn.close();
     }
 }

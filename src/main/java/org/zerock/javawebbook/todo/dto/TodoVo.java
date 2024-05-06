@@ -1,4 +1,4 @@
-package org.zerock.javawebbook.jdbc.vo;
+package org.zerock.javawebbook.todo.dto;
 
 import lombok.*;
 

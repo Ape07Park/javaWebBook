@@ -34,13 +34,19 @@ dependencies {
     implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
 
     // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
-    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.3.0'
+    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'
 
-    // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.32'
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
 
     // https://central.sonatype.com/artifact/com.zaxxer/HikariCP
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.1.0'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.13'
 
 }
 
