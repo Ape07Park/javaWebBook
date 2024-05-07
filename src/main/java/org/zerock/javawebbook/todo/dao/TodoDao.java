@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TodoDao {
 
@@ -51,6 +53,23 @@ public class TodoDao {
 
         pstmt.executeUpdate(); // sql문 전송 및 실행
 
+    }
+
+    public List<TodoVo> getTodoList() throws Exception {
+        List<TodoVo> list = new ArrayList<>();
+        @Cleanup Connection conn = ConnectionUtil.INSTANCE.getConnection(); // db와의 연결
+        String sql = "select * from tbl_todo";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery(); // select 문이기에 executeQuery() 사용 및 그것의 결과를 저장하기 위해 ResultSet 타입의 rs에 넣음
+
+        while (rs.next()){ // 행(row)에 데이터 존재 시 true, 없으면 false라 반복 o
+            TodoVo todo = TodoVo.builder().todoNum(rs.getLong("tno")).title(rs.getString("title"))
+                            .dueDate(rs.getDate("dueDate").toLocalDate()).finished(rs.getBoolean("finished"))
+                    .build();
+
+            list.add(todo);
+        }
+        return list;
     }
 
 }

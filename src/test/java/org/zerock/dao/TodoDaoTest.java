@@ -8,6 +8,8 @@ import org.zerock.javawebbook.todo.dto.TodoVo;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TodoDaoTest {
     private TodoDao todoDao;
@@ -30,5 +32,11 @@ public class TodoDaoTest {
                 .build();
 
         todoDao.insertTodo(todoVo);
+    }
+    @Test
+    public void getTodoListTest() throws Exception {
+       List<TodoVo> todoList = new ArrayList<>();
+       todoList = todoDao.getTodoList();
+       todoList.forEach(x -> System.out.println(x));
     }
 }
