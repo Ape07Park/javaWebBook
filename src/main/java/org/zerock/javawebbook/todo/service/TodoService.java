@@ -1,6 +1,10 @@
 package org.zerock.javawebbook.todo.service;
 
+import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.zerock.javawebbook.todo.dto.TodoDTO;
+import org.zerock.javawebbook.todo.dto.TodoVo;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +16,9 @@ public enum TodoService {
     INSTANCE; // INSTANCE 개수로 객체의 개수 결정 한 개만 있기에 하나의 객체만 생성 가능
     // 객체 사용 시 TodoService.INSTANCE로 사용함. 객체를 하나만 생성해 사용하는 걸 싱글톤 패턴이라 부름
 
-    public void register(TodoDTO todo) {
+    private static final Logger log = LoggerFactory.getLogger(TodoService.class);
+
+    public void register(TodoVo todo) {
         System.out.println(todo);
     }
 

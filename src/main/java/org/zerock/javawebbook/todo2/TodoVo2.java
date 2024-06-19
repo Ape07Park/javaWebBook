@@ -1,22 +1,19 @@
-package org.zerock.javawebbook.todo.dto;
+package org.zerock.javawebbook.todo2;
 
 import lombok.*;
 
 import java.time.LocalDate;
 
-@Builder
-@Setter
 @Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class TodoDTO {
+@ToString
+
+public class TodoVo2 {
     private Long tno;
-
     private String title;
-
     private LocalDate dueDate;
-
     private boolean finished;
-
 }
