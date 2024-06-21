@@ -9,13 +9,13 @@ public enum ModelMapperUtil {
 
     private ModelMapper modelMapper;
 
-    MapperUtil() {
+    // Constructor to initialize the modelMapper
+    ModelMapperUtil() {
         this.modelMapper = new ModelMapper();
         this.modelMapper.getConfiguration()
                 .setFieldMatchingEnabled(true)
                 .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE)
                 .setMatchingStrategy(MatchingStrategies.LOOSE);
-
     }
 
     public ModelMapper get() {
